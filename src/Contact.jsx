@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import Titlesec from '../data/Titlesec';
 import validate from './Contact/Validate';
 import emailjs from '@emailjs/browser';
+import "./Contact.css";
 
 const Contact = () => {
 
@@ -26,30 +26,6 @@ const Contact = () => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setDataCorrect(true);
-
-    // const { name, mob, email, sub, msg } = formValues;
-    // if (( name && mob && email && sub && msg )) {
-    //     const res = emailjs.sendForm(
-    //       'service_6rls2om',
-    //       'template_vws0xri', 
-    //       form.current,
-    //       'mtxtJDQWj0obDOXLF'
-    //       ).then(res => {
-    //         console.log("Your mail is sent!");
-    //       }).catch(err => console.log(err));
-    //         if (res) {
-    //             setFormValues({
-    //                 name: "",
-    //                 mob: "",
-    //                 email: "",
-    //                 sub: "",
-    //                 msg: "",
-    //             });
-    //             alert("Thank You👍, We'll cantact you soon.");
-    //         }
-    // } else {
-    //     alert("Please, Fill all the data🙏");
-    // }
   };
 
   useEffect(() => {
@@ -71,15 +47,14 @@ const Contact = () => {
   
   
   return <div>
-      {/* <Titlesec titlesec="Contact Us"/> */}
       <div className="page-content">
       <section className="contact-1" style={{backgroundImage: "url(images/pattern/02.png)"}}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-7">
               <div className="section-title mb-2">
-                <h6>Get In Touch</h6>
-                <h2>Contact Us</h2> 
+                <h4>STACKFUSION</h4>
+                <h1>User Form</h1> 
               </div>
               <div className="contact-main">
                 <form ref={form} id="contact-form" className="row" onSubmit={submitForm}>
@@ -137,12 +112,6 @@ const Contact = () => {
                   value={formValues.sub}
                   onChange={handelChange}
                   placeholder="Enter Your Subject" />
-                  {/* <Input type='date'
-                    placeholder='Enter BirthDate'
-                    value={values.birthdate} onChange={handleChange}
-                    name='birthdate'
-                    max={current}
-                    /> */}
                   {formErrors.sub && <span id="ContentPlaceHolder1_RequiredFieldValidator1" style={{color:"Red", display:"hidden"}}>{formErrors.sub}</span>}
                     <div className="help-block with-errors"></div>
                   </div>
@@ -151,7 +120,7 @@ const Contact = () => {
                       <input type="submit" 
                       value="Send Message"
                       className="btn btn-theme btn-radius" 
-                      style={{fontSize: "x-large"}} />
+                      style={{fontSize: "x-large", borderRadius: "7px",marginTop: "15px",padding: "10px",border: "1px solid",cursor: "pointer"}} />
                   
                   </div>
                 </form>

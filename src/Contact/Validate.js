@@ -2,11 +2,19 @@ const validate = (values) => {
     const formErrors = {};
     const name_regex = /^[a-zA-Z ]*$/;
     const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    // const birth_regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+    const today = new Date();
+    const validMinDate = new Date(
+      today.getFullYear() - 18,
+      today.getMonth(),
+      today.getDate(),
+      today.getHours(),
+      today.getMinutes()
+    );
+    const birthDate = new Date(values.sub);
     if (!values.name) {
       formErrors.name = "Name is required!";
     } else if (!name_regex.test(values.name)) {
-      formErrors.name = "Enter a valid e-mail";
+      formErrors.name = "Enter a valid Name";
     } else if (values.name.length < 3) {
       formErrors.name = "Name must be 3 characters";
     }
@@ -21,11 +29,10 @@ const validate = (values) => {
       formErrors.mob = "Number must be 10 digits";
     }
     if (!values.sub) {
-      formErrors.sub = "Subject is required";
+      formErrors.sub = "Date is required";
+    } else if (birthDate > validMinDate) {
+      formErrors.sub = "Minimum age must be 18 years.";
     }
-    // if (!values.msg) {
-    //   formErrors.msg = "Message is required";
-    // }
     return formErrors;
   };
 
