@@ -83,7 +83,7 @@ const Contact = () => {
               </div>
               <div className="contact-main">
                 <form ref={form} id="contact-form" className="row" onSubmit={submitForm}>
-                  <div className="messge"></div>
+                  <div className="messges"></div>
 
                   <div className="form-group col-md-12">
                       <input 
